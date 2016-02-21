@@ -43,7 +43,7 @@ def registerDentist():
             error = "Username already exists. Please try again."
             return render_template("register.html", err = error)
         else:
-            database.register(username,password,firstname,lastname,specialization,\
+            database.registerDentist(username,password,firstname,lastname,specialization,\
             clinicaddress,emailaddress,clinicphonenumber)
             return redirect(url_for("login"))  
 
@@ -63,7 +63,7 @@ def registerPatient():
             error = "Username already exists. Please try again."
             return render_template("register.html", err = error)
         else:
-            database.register(username,password,firstname,lastname,homeaddress,\
+            database.registerPatient(username,password,firstname,lastname,homeaddress,\
             emailaddress,phonenumber)
             return redirect(url_for("login"))    
 
