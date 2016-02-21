@@ -45,8 +45,8 @@ def addPatient(dUsername, pFName, pLName, pUsername):
         newPatients = currPatients.append(pUsername)
     else:
         pat = db.patients.find({'firstName': pFName, 'lastName': pLName}[uname])
-        currPatients.append(pat)
-    db.dentists.update({'uname': dUsername}, {$set:{'patients': newPatients}}, {upsert:true}) 
+        newPatients = currPatients.append(pat)
+    db.dentists.update({'uname': dUsername}, {'patients': newPatients}, {upsert:true}) 
     
 """
 # Insert picture name after upload using HTML/PHP
@@ -57,7 +57,7 @@ def newPicture(
 
 # Puts patient <username> and <password> into database
 def registerPatient(username,password,firstName,lastName, hAddress, eAddress, pNum):
-    required = [username, password, firstName, lastName, hAddress, pNum)
+    required = [username, password, firstName, lastName, hAddress, pNum]
     connection = MongoClient()
     db = connection['database']
     newPass = md5.new(password).digest()

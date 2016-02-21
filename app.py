@@ -1,8 +1,8 @@
 from flask import Flask, render_template, request, jsonify, session, redirect, url_for
 import urllib2
 import database
-import json
-
+import json 
+import os
 
 app = Flask(__name__)
 
@@ -68,6 +68,9 @@ def registerPatient():
             return redirect(url_for("login"))    
 
 if __name__ == "__main__":
+    """
+    app.run(host=os.getenv('IP', '0.0.0.0'), port=int(os.getenv('PORT', 8000)))
+    """
     app.debug = True
     app.secret_key = "Don't put on git"
-    app.run(host="0.0.0.0", port=8700)
+    app.run(host="0.0.0.0", port=8080)
