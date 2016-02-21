@@ -1,11 +1,13 @@
 from flask import Flask, render_template, request, jsonify, session, redirect, url_for
 import urllib2
+import database
 import json
 
 
 app = Flask(__name__)
 
 @app.route("/",methods=["GET","POST"])
+@app.route("/index",methods=["GET","POST"])
 def index():
     return render_template("index.html")
     
@@ -17,9 +19,55 @@ def login():
 		username = request.form["username"]
 		password = request.form["password"]
 		session['username'] = request.form["username"]
-                if (Append.authenticate(username, password)):
-                        session['n']=username
-                        return redirect(url_for(""))
-                else:
-                        error = "Your Username or Password is incorrect. Please try again."
-                        return render_template("login.html", problem = error )
+        if (database.authenticate(username, password)):
+            session['user']=username
+            return redirect(url_for(""))
+        else:
+            error = "Your Username or Password is incorrect. Please try again."
+            return render_template("login.html", problem = error )
+                        
+@app.route("/registerDentist")
+def registerDentist():
+    if (request.method == "GET"):
+        return render_template("register.html")
+    else:
+        username = request.form["username"]
+        password = request.form["password"]
+        firstname = request.form["firstname"]
+        lastname = request.form["lastname"]
+        specialization = request.form["specialization"]
+        clinicaddress = request.form["clinicaddress"]
+        emailaddress = request.form["emailaddress"]
+        clinicphonenumber = request.form["clinicphonenumber"]
+        if database.validuname(username):
+            error = "Username already exists. Please try again."
+            return render_template("register.html", err = error)
+        else:
+            database.register(username,password,firstname,lastname,specialization,\
+            clinicaddress,emailaddress,clinicphonenumber)
+            return redirect(url_for("login"))  
+
+@app.route("/registerPatient", methods=["POST","GET"])
+def registerPatient():
+    if (request.method == "GET"):
+        return render_template("register.html")
+    else:
+        username = request.form["username"]
+        password = request.form["password"]
+        firstname = request.form["firstname"]
+        lastname = request.form["lastname"]
+        homeaddress = request.form["homeaddress"]
+        emailaddress = request.form["emailaddress"]
+        phonenumber = request.form["phonenumber"]
+        if database.validuname(username):
+            error = "Username already exists. Please try again."
+            return render_template("register.html", err = error)
+        else:
+            database.register(username,password,firstname,lastname,homeaddress,\
+            emailaddress,phonenumber)
+            return redirect(url_for("login"))    
+
+if __name__ == "__main__":
+    app.debug = True
+    app.secret_key = "Don't put on git"
+    app.run(host="0.0.0.0", port=8700)

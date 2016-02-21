@@ -40,7 +40,7 @@ def authenticateDentist(username,password):
 def addPatient(dUsername, pFName, pLName, pUsername):
     connection = MongoClient()
     db = connection['database']
-    currPatients = db.dentists.find('uname': dUsername)[patients]
+    currPatients = db.dentists.find({'uname': dUsername})[patients]
     if (pUsername != ""):
         newPatients = currPatients.append(pUsername)
     else:
