@@ -7,7 +7,7 @@ def registerDentist(username,password,firstName,lastName,spec,cAddress,eAddress,
     required = [username, password, fistName, lastName, cAddress, pNum]
     connection = MongoClient()
     db = connection['database']
-    newPass = md5.new(password).digest()
+    newPass = str(md5.new(password).digest())
     for param in required:
         if param == "":
             return "missing"
@@ -60,7 +60,7 @@ def registerPatient(username,password,firstName,lastName, hAddress, eAddress, pN
     required = [username, password, firstName, lastName, hAddress, pNum]
     connection = MongoClient()
     db = connection['database']
-    newPass = md5.new(password).digest()
+    newPass = str(md5.new(password).digest())
     for param in required:
         if param == "":
             return "missing"
