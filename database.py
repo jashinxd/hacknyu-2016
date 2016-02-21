@@ -13,7 +13,7 @@ def registerDentist(username,password,firstName,lastName,spec,cAddress,eAddress,
             return "missing"
     db.dentists.insert({'uname': username, 'password': newPass, 'firstName': firstName,\
     'lastName': lastName, 'spec': spec, 'cAddress': cAddress, 'eAddress': eAddress, 'pNum': pNum,\
-    'numPatients': 0,'patients': {'null'}})
+    'numPatients': 0,'patients': {0:'null'}})
 
 # Tests if the dentist's username is already registered or not
 def validDentistUname(username):
@@ -66,7 +66,7 @@ def registerPatient(username,password,firstName,lastName, hAddress, eAddress, pN
             return "missing"
     db.patients.insert({'uname': username, 'password': newPass, 'firstName': firstName,\
     'lastName': lastName, 'hAddress': hAddress, 'eAddress': eAddress, 'pNum': pNum,\
-    'numDentists': 0, 'dentists': {'null'}})
+    'numDentists': 0, 'dentists': {0: 'null'}})
 
 # Tests if the patient's username is already registered or not    
 def validPatientUname(username):
