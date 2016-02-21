@@ -29,7 +29,7 @@ def login():
 @app.route("/registerdentist")
 def registerDentist():
     if (request.method == "GET"):
-        return render_template("registerdentist")
+        return render_template("registerdentist.html")
     else:
         username = request.form["username"]
         password = request.form["password"]
@@ -50,7 +50,7 @@ def registerDentist():
 @app.route("/registerpatient", methods=["POST","GET"])
 def registerPatient():
     if (request.method == "GET"):
-        return render_template("registerpatient")
+        return render_template("registerpatient.html")
     else:
         username = request.form["username"]
         password = request.form["password"]
