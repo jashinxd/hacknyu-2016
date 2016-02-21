@@ -65,7 +65,7 @@ def registerPatient(username,password,firstName,lastName, hAddress, eAddress, pN
         if param == "":
             return "missing"
     db.patients.insert({'uname': username, 'password': newPass, 'firstName': firstName,\
-    'lastName': lastName, 'spec': spec, 'hAddress': hAddress, 'eAddress': eAddress, 'pNum': pNum,\
+    'lastName': lastName, 'hAddress': hAddress, 'eAddress': eAddress, 'pNum': pNum,\
     'dentists': [] })
 
 # Tests if the patient's username is already registered or not    
