@@ -1,0 +1,30 @@
+{% extends "base-loggedout.html" %}
+
+{% block title %}Login - The Whole Tooth{% endblock %}
+
+{% block contents %}
+    <!-- Page Content -->
+    <div class="container">
+
+        <!-- Heading Row -->
+            <!-- /.col-md-8 -->
+            <div class="col-md-4">
+                <h1>Profile</h1>
+                    {%if problem %}
+                      <h3>{{problem}}</h3>
+                    {% endif %}
+                    <form>
+                        Username:<br>
+                        <input type="text" name="username"><br>
+                        <br>
+                        Password:<br>
+                        <input type="text" name="password">
+                        <br>
+                        <br>
+                        <input type = "submit" class="btn btn-primary btn-lg" href="profile" value = "Login"></input>
+                    </form>
+            </div>
+            <!-- /.col-md-4 -->
+        </div>
+        <!-- /.row -->
+{% endblock %}
