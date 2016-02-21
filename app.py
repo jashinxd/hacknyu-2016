@@ -52,13 +52,13 @@ def registerPatient():
     if (request.method == "GET"):
         return render_template("registerpatient.html")
     else:
-        username = request.form["username"]
-        password = request.form["password"]
-        firstname = request.form["firstname"]
-        lastname = request.form["lastname"]
-        homeaddress = request.form["homeaddress"]
-        emailaddress = request.form["emailaddress"]
-        phonenumber = request.form["phonenumber"]
+        username = str(request.form["username"])
+        password = str(request.form["password"])
+        firstname = str(request.form["firstname"])
+        lastname = str(request.form["lastname"])
+        homeaddress = str(request.form["homeaddress"])
+        emailaddress = str(request.form["emailaddress"])
+        phonenumber = str(request.form["phonenumber"])
         if database.validPatientUname(username):
             error = "Username already exists. Please try again."
             return render_template("register.html", err = error)
