@@ -1,0 +1,45 @@
+{% extends "base-loggedout.html" %}
+
+{% block title %}Register - The Whole Tooth{% endblock %}
+
+{% block contents %}
+    <!-- Page Content -->
+    <div class="container">
+
+        <!-- Heading Row -->
+            <!-- /.col-md-8 -->
+            <div class="col-md-4">
+                <h1>Register as a Doctor</h1>
+                    <form>
+                        Username:<br>
+                        <input type="text" name="username"><br>
+                        <br>
+                        Password:<br>
+                        <input type="password" name="password">
+                        <br><br>
+                        First Name:<br>
+                        <input type="text" name="firstname">
+                        <br><br>
+                        Last Name:<br>
+                        <input type="text" name="lastname">
+                        <br><br>
+                        Specialization:<br>
+                        <input type="text" name="specialization">
+                        <br><br>
+                        Clinic Address:<br>
+                        <input type="text" name="homeaddress">
+                        <br><br>
+                        Email Address:<br>
+                        <input type="text" name="emailaddress">
+                        <br><br>
+                        Clinic Phone Number:<br>
+                        <input type="text" name="clinicphonenumber">
+                        <br><br>
+                        
+                        <input type = "submit" class="btn btn-primary btn-lg" href="profile.html" value = "Register"></input>
+                    </form>
+            </div>
+            <!-- /.col-md-4 -->
+        </div>
+        <!-- /.row -->
+{% endblock %}
