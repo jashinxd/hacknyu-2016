@@ -41,7 +41,7 @@ def registerDentist():
         clinicphonenumber = request.form["clinicphonenumber"]
         if database.validDentistUname(username):
             error = "Username already exists. Please try again."
-            return render_template("register.html", err = error)
+            return render_template("registerdentist.html", err = error)
         else:
             database.registerDentist(username,password,firstname,lastname,specialization,\
             clinicaddress,emailaddress,clinicphonenumber)
@@ -61,7 +61,7 @@ def registerPatient():
         phonenumber = str(request.form["phonenumber"])
         if database.validPatientUname(username):
             error = "Username already exists. Please try again."
-            return render_template("register.html", err = error)
+            return render_template("registerpatient.html", err = error)
         else:
             database.registerPatient(username,password,firstname,lastname,homeaddress,\
             emailaddress,phonenumber)
