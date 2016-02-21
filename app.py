@@ -26,7 +26,7 @@ def login():
             error = "Your Username or Password is incorrect. Please try again."
             return render_template("login.html", problem = error )
                         
-@app.route("/registerDentist")
+@app.route("/registerdentist")
 def registerDentist():
     if (request.method == "GET"):
         return render_template("register.html")
@@ -47,7 +47,7 @@ def registerDentist():
             clinicaddress,emailaddress,clinicphonenumber)
             return redirect(url_for("login"))  
 
-@app.route("/registerPatient", methods=["POST","GET"])
+@app.route("/registerpatient", methods=["POST","GET"])
 def registerPatient():
     if (request.method == "GET"):
         return render_template("register.html")
