@@ -39,7 +39,7 @@ def registerDentist():
         clinicaddress = request.form["clinicaddress"]
         emailaddress = request.form["emailaddress"]
         clinicphonenumber = request.form["clinicphonenumber"]
-        if database.validuname(username):
+        if database.validDentistUname(username):
             error = "Username already exists. Please try again."
             return render_template("register.html", err = error)
         else:
@@ -59,7 +59,7 @@ def registerPatient():
         homeaddress = request.form["homeaddress"]
         emailaddress = request.form["emailaddress"]
         phonenumber = request.form["phonenumber"]
-        if database.validuname(username):
+        if database.validPatientUname(username):
             error = "Username already exists. Please try again."
             return render_template("register.html", err = error)
         else:
